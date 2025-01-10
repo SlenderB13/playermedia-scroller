@@ -1,13 +1,25 @@
+# Playermedia Scroller
+
+Display the media playing in Polybar.
+
+![Demo](./demo/player-scroller.mkv)
+
 ## Dependencies
-This program gathers information from the [playerctl](https://github.com/altdesktop/playerctl) library, so you must have it.
+* [playerctl](https://github.com/altdesktop/playerctl)
+
+This program gathers information from the [playerctl](https://github.com/altdesktop/playerctl) library, so make sure you have it.
 
 ## How to install
 
+### From source
 ```bash
 git clone https://github.com/SlenderB13/playermedia-scroller/
 cd playermedia-scroller
 make
 ```
+
+### From package managers
+(Not available yet)
 
 ## How to run it
 
@@ -41,11 +53,12 @@ fi
 > You can also play and pause by clicking in the media info, not only via buttons.
 
 2. Add the modules commands to your `/.config/polybar/config.ini`
+> Don't forget to edit the path to your `playermedia-controller` binary.
 
 ```ini
 [module/mediaplayer]
 type = custom/script
-exec = /home/$HOME/.config/polybar/playermedia-scroller
+exec = path/to/playermedia-scroller
 #interval = 0.5
 interval = 1
 tail = true
