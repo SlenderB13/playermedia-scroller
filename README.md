@@ -49,6 +49,9 @@ else
 	echo "%{A1:playerctl previous:}◀%{A} %{A1:playerctl play-pause:}▷%{A} %{A1:playerctl next:}▶%{A}"
 fi
 ```
+> [!NOTE]
+> Don't forget to make this script executable by running `chmod +x ./mediaplayer-buttons.sh`
+
 > [!TIP]
 > You can also play and pause by clicking in the media info, not only via buttons.
 
