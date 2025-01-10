@@ -85,3 +85,18 @@ modules-center = mediaplayer-source mediaplayer mediaplayer-buttons
 > I use it at the center, but you can choose where to put it.
 
 4. You can choose which modules to add to the bar. Maybe you want only the player but not the buttons.
+
+___
+
+## Roadmap
+
+This project is in its first steps, so you can help to make it better.
+
+### To-do
+- [ ] Add support to icons, like `spotify` or `chrome`.
+- [ ] Maybe stop truncating huge titles??
+
+### To-fix
+- [ ] Random CPU spikes.
+- [ ] Width increases when title is too big, causing the buttons to move.
+- [ ] Weird characters rendered when the title is to big.

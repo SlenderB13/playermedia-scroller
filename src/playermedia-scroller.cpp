@@ -39,7 +39,7 @@ int main() {
 		pclose(status_command);
 		
 		// gets playerctl metadata command result
-		FILE* metadata_command = popen("playerctl metadata --format '{{artist}} - {{title}}'", "r");
+		FILE* metadata_command = popen("playerctl metadata --format '{{artist}} - {{title}}' | cut -c 1-60", "r");
 		char metadata_buffer[128];
 		std::string metadata;
 
