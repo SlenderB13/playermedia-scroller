@@ -2,7 +2,7 @@
 
 Display the media playing in Polybar.
 
-![Demo](./demo/player-scroller.mp4)
+![Demo](https://raw.githubusercontent.com/SlenderB13/playermedia-scroller/main/demo/player-scroller.mp4)
 
 ## Dependencies
 * [playerctl](https://github.com/altdesktop/playerctl)
