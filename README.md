@@ -2,7 +2,7 @@
 
 Display the media playing in Polybar.
 
-![Demo](./demo/player-scroller.mkv)
+![Demo](./demo/player-scroller.mp4)
 
 ## Dependencies
 * [playerctl](https://github.com/altdesktop/playerctl)
