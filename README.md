@@ -22,7 +22,25 @@ You can run it in your terminal by calling the binary.
 
 This program is made to integrate with [Polybar](https://github.com/polybar/polybar), so to use it you must:
 
-1. Add the modules commands to your `/.config/polybar/config.ini`
+1. Create a `/.config/polybar/mediaplayer-buttons.sh` file and paste the script for the `previous`, `play/pause` and `next` buttons.
+
+```bash
+#!/bin/bash
+
+playerctlstatus=$(playerctl status 2> /dev/null)
+
+if [[ $playerctlstatus ==  "" ]]; then
+    echo ""
+elif [[ $playerctlstatus =~ "Playing" ]]; then
+	echo "%{A1:playerctl previous:}◀%{A} %{A1:playerctl play-pause:}❚❚%{A} %{A1:playerctl next:}▶%{A}"
+else
+	echo "%{A1:playerctl previous:}◀%{A} %{A1:playerctl play-pause:}▷%{A} %{A1:playerctl next:}▶%{A}"
+fi
+```
+> [!TIP]
+> You can also play and pause by clicking in the media info, not only via buttons.
+
+2. Add the modules commands to your `/.config/polybar/config.ini`
 
 ```ini
 [module/mediaplayer]
@@ -43,11 +61,11 @@ exec = /home/$HOME/.config/polybar/mediaplayer-buttons.sh
 interval = 0.8
 ```
 
-2. Add the modules to the bar
+3. Add the modules to the bar
 
 ```ini
 modules-center = mediaplayer-source mediaplayer mediaplayer-buttons
 ```
 > I use it at the center, but you can choose where to put it.
 
-3. You can choose which modules to add to the bar. Maybe you want only the player but not the buttons.
+4. You can choose which modules to add to the bar. Maybe you want only the player but not the buttons.
