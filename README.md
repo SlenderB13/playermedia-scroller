@@ -6,6 +6,7 @@ https://github.com/user-attachments/assets/f44b323a-a4e4-462b-a553-efd82592c29d
 
 ## Dependencies
 * [playerctl](https://github.com/altdesktop/playerctl)
+* font-awesome or any [Nerd Font](https://www.nerdfonts.com/) with support for `Spotify`, `Chrome` and `Firefox` glyphs.
 
 This program gathers information from the [playerctl](https://github.com/altdesktop/playerctl) library, so make sure you have it.
 
@@ -66,6 +67,19 @@ modules-center = mediaplayer-source mediaplayer mediaplayer-buttons
 > I use it at the center, but you can choose where to put it.
 
 4. You can choose which modules to add to the bar. Maybe you want only the player but not the buttons.
+
+___
+
+## About the fonts
+You will like to have the indexed fonts in your `/.config/polybar/config.ini` file. The fallback font must support the icons we are using.
+Something like this:
+
+```ini
+font-0 = Noto Sans Mono:size=10
+font-1 = Font Awesome 6 Brands:size=10
+```
+
+To help you finding a font with these supports, you can use the [gucharmap](https://wiki.gnome.org/Apps(2f)Gucharmap.html) app.
 
 ___
 
