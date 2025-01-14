@@ -34,46 +34,27 @@ You can run it in your terminal by calling the binary.
 
 This program is made to integrate with [Polybar](https://github.com/polybar/polybar), so to use it you must:
 
-1. Create a `/.config/polybar/mediaplayer-buttons.sh` file and paste the script for the `previous`, `play/pause` and `next` buttons.
-
-```bash
-#!/bin/bash
-
-playerctlstatus=$(playerctl status 2> /dev/null)
-
-if [[ $playerctlstatus ==  "" ]]; then
-    echo ""
-elif [[ $playerctlstatus =~ "Playing" ]]; then
-	echo "%{A1:playerctl previous:}◀%{A} %{A1:playerctl play-pause:}❚❚%{A} %{A1:playerctl next:}▶%{A}"
-else
-	echo "%{A1:playerctl previous:}◀%{A} %{A1:playerctl play-pause:}▷%{A} %{A1:playerctl next:}▶%{A}"
-fi
-```
-> [!NOTE]
-> Don't forget to make this script executable by running `chmod +x ./mediaplayer-buttons.sh`
-
-> [!TIP]
-> You can also play and pause by clicking in the media info, not only via buttons.
+1. `cd` into `playermedia-scroll` folder and make both the scripts `mediaplayer-buttons` and `mediaplayer-source` callable with `chmod +x ./mediaplayer-buttons.sh ./mediaplayer-source.sh`.
 
 2. Add the modules commands to your `/.config/polybar/config.ini`
-> Don't forget to edit the path to your `playermedia-controller` binary.
+> Don't forget to point the path to the files inside the folder you just donwloaded.
 
 ```ini
 [module/mediaplayer]
 type = custom/script
-exec = path/to/playermedia-scroller
+exec = /path/to/playermedia-scroller
 #interval = 0.5
 interval = 1
 tail = true
 
 [module/mediaplayer-source]
 type = custom/script
-exec = echo "($(playerctl metadata --format '{{playerName}}'))"
+exec = /path/to/mediaplayer-source.sh
 interval = 1
 
 [module/mediaplayer-buttons]
 type = custom/script
-exec = /home/$HOME/.config/polybar/mediaplayer-buttons.sh
+exec = /path/to/mediaplayer-buttons.sh
 interval = 0.8
 ```
 
@@ -93,10 +74,10 @@ ___
 This project is in its first steps, so you can help to make it better.
 
 ### To-do
-- [ ] Add support to icons, like `spotify` or `chrome`.
+- [x] Add support to icons, like `spotify` or `chrome`.
 - [ ] Maybe stop truncating huge titles??
 
 ### To-fix
-- [ ] Random CPU spikes.
-- [ ] Width increases when title is too big, causing the buttons to move.
-- [ ] Weird characters rendered when the title is to big.
+- [x] Random CPU spikes.
+- [x] Width increases when title is too big, causing the buttons to move.(fixed by truncating)
+- [x] Weird characters rendered when the title is to big. (fixed by truncating)
